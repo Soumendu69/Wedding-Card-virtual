@@ -221,11 +221,12 @@ html, body {
 }
 
 .hero-icon {
-  width: 78px;
-  height: 78px;
+  width: 110px;
+  height: 110px;
   margin: 0 auto 1.25rem;
   object-fit: contain;
-  opacity: 0.85;
+  opacity: 0.9;
+  display: block;
 }
 
 .god-quote {

@@ -5,7 +5,11 @@ export default function HeroInvite() {
     <section className="hero" id="hero">
       <div className="hero-corner" />
       <div className="hero-card">
-        <GaneshaIcon />
+        <img
+          className="hero-icon reveal"
+          src="https://customer-assets.emergentagent.com/job_fest-hub-18/artifacts/jwuciqyq_imgdownloader-c7fe28f7.png"
+          alt="Lord Ganesha"
+        />
         <div className="god-quote reveal reveal-d1">
           ॥ श्री गणेशाय नमः ॥
           <br />
