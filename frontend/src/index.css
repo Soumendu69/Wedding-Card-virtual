@@ -227,6 +227,13 @@ html, body {
   object-fit: contain;
   opacity: 0.9;
   display: block;
+  animation: ganeshFloat 3.8s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes ganeshFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 .god-quote {
