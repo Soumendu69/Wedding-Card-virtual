@@ -47,6 +47,8 @@ export default function EventsSection() {
         Join us as we begin our forever
       </p>
 
+      <CountdownTimer />
+
       <div className="events-grid">
         {EVENTS.map((ev, i) => (
           <div
@@ -76,8 +78,6 @@ export default function EventsSection() {
           </div>
         ))}
       </div>
-
-      <CountdownTimer />
     </section>
   );
 }
