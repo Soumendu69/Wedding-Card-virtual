@@ -15,7 +15,7 @@ export default function EnvelopeCover({ opened, onOpen }) {
       <div className="env-fold-bottom" />
       <div className="tap-to-reveal">Tap to Reveal</div>
       <div className="wax-seal">
-        <div className="wax-monogram">R&amp;P</div>
+        <div className="wax-monogram">D&amp;S</div>
       </div>
       <SparklesDeco />
     </div>

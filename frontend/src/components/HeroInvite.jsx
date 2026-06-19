@@ -16,13 +16,13 @@ export default function HeroInvite() {
         <div className="intro-text reveal reveal-d2">
           With the blessings of Shri Ganesh and our beloved families, we joyfully invite you to celebrate the union of
         </div>
-        <div className="couple-name shimmer reveal reveal-d2">Meenal</div>
+        <div className="couple-name shimmer reveal reveal-d2">Deepika</div>
         <div className="amp-row reveal reveal-d3">
           <span className="amp-line" />
           <span className="amp">&amp;</span>
           <span className="amp-line" />
         </div>
-        <div className="couple-name shimmer reveal reveal-d3">Avinash</div>
+        <div className="couple-name shimmer reveal reveal-d3">Sunit</div>
         <div className="parent-sub reveal reveal-d4">
           Daughter of Mr. &amp; Mrs. Sharma
           <br />
