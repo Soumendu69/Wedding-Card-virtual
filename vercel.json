@@ -7,6 +7,8 @@
     },
     "backend": {
       "root": "backend",
+      "framework": "fastapi",
+      "entrypoint": "server.py",
       "routePrefix": "/_/backend"
     }
   }
