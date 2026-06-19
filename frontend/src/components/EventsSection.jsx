@@ -1,5 +1,6 @@
 import React from "react";
 import { MapPin, Clock, Calendar } from "lucide-react";
+import CountdownTimer from "./CountdownTimer";
 
 const VENUE_DAULATABAD = {
   name: "Daulatabad Choudwar",
@@ -13,25 +14,25 @@ const VENUE_ADITYA = {
 const EVENTS = [
   {
     title: "Mehendi",
-    date: "28 June 2026",
+    date: "21 December 2026",
     time: "4:00 PM onwards",
     venue: VENUE_DAULATABAD,
   },
   {
     title: "Sangeet",
-    date: "29 June 2026",
+    date: "22 December 2026",
     time: "7:00 PM onwards",
     venue: VENUE_DAULATABAD,
   },
   {
     title: "Wedding Ceremony",
-    date: "01 July 2026",
+    date: "25 December 2026",
     time: "9:30 AM onwards",
     venue: VENUE_ADITYA,
   },
   {
     title: "Reception",
-    date: "01 July 2026",
+    date: "28 December 2026",
     time: "8:00 PM onwards",
     venue: VENUE_ADITYA,
   },
@@ -75,6 +76,8 @@ export default function EventsSection() {
           </div>
         ))}
       </div>
+
+      <CountdownTimer />
     </section>
   );
 }
