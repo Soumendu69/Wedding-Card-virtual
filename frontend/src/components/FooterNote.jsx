@@ -13,10 +13,10 @@ export default function FooterNote() {
         With love and gratitude,
       </p>
       <p style={{ marginTop: 4, fontFamily: "'Dancing Script', cursive", color: "#8A4F4C", fontSize: "1.5rem" }}>
-        Deepika &amp; Sunit
+        Dipika &amp; Sunit
       </p>
       <p style={{ marginTop: "1.5rem", fontSize: "0.8rem", letterSpacing: 3, textTransform: "uppercase", color: "#C2807E" }}>
-        #DeepikaWedsSunit
+        #DipikaWedsSunit
       </p>
     </footer>
   );

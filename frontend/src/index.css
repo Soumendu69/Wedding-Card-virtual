@@ -482,6 +482,62 @@ html, body {
   line-height: 1.6;
 }
 
+.venue-link {
+  color: var(--wine);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--rose);
+  font-style: italic;
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+.venue-link:hover {
+  color: var(--wine-deep);
+  border-bottom-color: var(--wine-deep);
+}
+
+/* Flower burst */
+.flower-burst {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 5;
+}
+.flower-burst .petal-burst {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 22px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  opacity: 0;
+  transform-origin: center;
+  will-change: transform, opacity;
+  animation: petalBurst 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.flower-burst .petal-burst.from-left {
+  left: 0;
+  top: 50%;
+}
+.flower-burst .petal-burst.from-right {
+  left: auto;
+  right: 0;
+  top: 50%;
+}
+
+@keyframes petalBurst {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(0deg) scale(0.4);
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--tx, 0px), var(--ty, -120px)) rotate(var(--rot, 360deg)) scale(1);
+  }
+}
+
 .events-grid {
   display: grid;
   grid-template-columns: 1fr;

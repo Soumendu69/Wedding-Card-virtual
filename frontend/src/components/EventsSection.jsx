@@ -1,30 +1,39 @@
 import React from "react";
 import { MapPin, Clock, Calendar } from "lucide-react";
 
+const VENUE_DAULATABAD = {
+  name: "Daulatabad Choudwar",
+  url: "https://maps.app.goo.gl/LiSzYTkbbyk38Zi66",
+};
+const VENUE_ADITYA = {
+  name: "Aditya's The Nature",
+  url: "https://maps.app.goo.gl/PAiToTZjtcZitr6j9",
+};
+
 const EVENTS = [
   {
     title: "Mehendi",
     date: "28 June 2026",
     time: "4:00 PM onwards",
-    venue: "Sharma Residence, Jaipur",
+    venue: VENUE_DAULATABAD,
   },
   {
     title: "Sangeet",
     date: "29 June 2026",
     time: "7:00 PM onwards",
-    venue: "The Leela Palace, Lawn No. 2",
+    venue: VENUE_DAULATABAD,
   },
   {
     title: "Wedding Ceremony",
     date: "01 July 2026",
     time: "9:30 AM onwards",
-    venue: "Rambagh Gardens, Jaipur",
+    venue: VENUE_ADITYA,
   },
   {
     title: "Reception",
     date: "01 July 2026",
     time: "8:00 PM onwards",
-    venue: "Rambagh Pavilion",
+    venue: VENUE_ADITYA,
   },
 ];
 
@@ -41,7 +50,7 @@ export default function EventsSection() {
         {EVENTS.map((ev, i) => (
           <div
             className="event-card reveal"
-            key={ev.title}
+            key={ev.title + i}
             style={{ transitionDelay: `${0.15 * (i + 1)}s` }}
           >
             <div className="event-meta">
@@ -53,7 +62,15 @@ export default function EventsSection() {
               <Clock size={14} /> {ev.time}
             </p>
             <p style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 6, marginTop: 6 }}>
-              <MapPin size={14} /> {ev.venue}
+              <MapPin size={14} />
+              <a
+                href={ev.venue.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="venue-link"
+              >
+                {ev.venue.name}
+              </a>
             </p>
           </div>
         ))}
