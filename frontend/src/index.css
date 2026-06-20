@@ -518,8 +518,11 @@ html, body {
   justify-content: center;
   color: var(--wine);
   font-family: 'Italiana', serif;
-  font-size: 2rem;
-  letter-spacing: 2px;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  padding: 0 6px;
+  text-align: center;
+  line-height: 1;
 }
 .scratch-card canvas {
   position: absolute;
@@ -1196,6 +1199,7 @@ html, body {
   .hero-card { padding: 3.5rem 3rem 2.5rem; }
   .scratch-grid { max-width: 460px; }
   .scratch-card { width: 180px; height: 220px; }
+  .scratch-card .reveal-bg { font-size: 1.75rem; }
 }
 
 @layer base {
