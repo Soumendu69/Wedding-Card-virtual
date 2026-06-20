@@ -272,19 +272,3 @@ export default function RSVPSection() {
     </section>
   );
 }
-"rsvp-submit"
-          disabled={status === "sending"}
-        >
-          {status === "sending" ? (
-            "Sending…"
-          ) : (
-            <>
-              <Send size={16} style={{ marginRight: 8 }} />
-              SEND RSVP
-            </>
-          )}
-        </button>
-      </form>
-    </section>
-  );
-}
