@@ -2,3 +2,4 @@
 connect to https://vercel.com/
 /any website creator
 specially optimised for vercel.json
+optimised for emergent by soumendu
