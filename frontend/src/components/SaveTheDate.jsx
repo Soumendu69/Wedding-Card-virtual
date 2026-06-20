@@ -11,7 +11,7 @@ const PETAL_COLORS = [
   "#F4D1C9", "#C9A24B", "#B97A78", "#F2DCD5", "#E6BD60",
 ];
 
-export default function SaveTheDate() {
+export default function SaveTheDate({ onAllRevealed }) {
   const [revealedCount, setRevealedCount] = useState(0);
   const [showMegaBurst, setShowMegaBurst] = useState(false);
   const triggeredMega = useRef(false);
@@ -25,8 +25,9 @@ export default function SaveTheDate() {
       triggeredMega.current = true;
       setShowMegaBurst(true);
       setTimeout(() => setShowMegaBurst(false), 3200);
+      if (onAllRevealed) onAllRevealed();
     }
-  }, [revealedCount]);
+  }, [revealedCount, onAllRevealed]);
 
   return (
     <section className="scratch-section" id="countdown-section">

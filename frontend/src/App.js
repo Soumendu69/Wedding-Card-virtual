@@ -9,9 +9,11 @@ import RSVPSection from "./components/RSVPSection";
 import FooterNote from "./components/FooterNote";
 import PetalsCanvas from "./components/PetalsCanvas";
 import MusicButton from "./components/MusicButton";
+import { Lock } from "lucide-react";
 
 function App() {
   const [opened, setOpened] = useState(false);
+  const [datesUnlocked, setDatesUnlocked] = useState(false);
 
   useEffect(() => {
     if (opened) {
@@ -37,7 +39,7 @@ function App() {
     );
     els.forEach((el) => io.observe(el));
     return () => io.disconnect();
-  }, [opened]);
+  }, [opened, datesUnlocked]);
 
   return (
     <div className="App">
@@ -47,11 +49,21 @@ function App() {
 
       <main style={{ position: "relative", zIndex: 2 }}>
         <HeroInvite />
-        <SaveTheDate />
-        <EventsSection />
-        <GallerySection />
-        <RSVPSection />
-        <FooterNote />
+        <SaveTheDate onAllRevealed={() => setDatesUnlocked(true)} />
+
+        {!datesUnlocked && (
+          <div className="dates-lock-hint">
+            <Lock size={18} />
+            <span>Scratch all three cards above to continue the journey</span>
+          </div>
+        )}
+
+        <div className={`locked-content ${datesUnlocked ? "unlocked" : ""}`}>
+          <EventsSection />
+          <GallerySection />
+          <RSVPSection />
+          <FooterNote />
+        </div>
       </main>
     </div>
   );
