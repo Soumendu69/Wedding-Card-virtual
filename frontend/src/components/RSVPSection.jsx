@@ -9,12 +9,9 @@ const EVENTS = [
 ];
 
 const DIETARY = [
-  "No specific preferences",
   "Vegetarian",
+  "Non-vegetarian",
   "Vegan",
-  "Jain",
-  "Gluten-free",
-  "Nut allergy",
 ];
 
 // Replace with your Google Apps Script Web App URL after deployment.
