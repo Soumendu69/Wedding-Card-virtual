@@ -40,7 +40,7 @@ export default function EnvelopeCover({ opened, onOpen }) {
       <div className="tap-to-reveal">Tap to Reveal</div>
 
       <div className="wax-seal">
-        <div className="wax-monogram">D&amp;S</div>
+        <div className="wax-monogram">S&amp;D</div>
       </div>
 
       <SparklesDeco />
