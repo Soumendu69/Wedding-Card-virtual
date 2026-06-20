@@ -707,18 +707,29 @@ html, body {
 }
 .memory-card {
   position: sticky;
+  top: 5rem;
   width: 100%;
   aspect-ratio: 4 / 5;
   border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 16px 40px rgba(80, 40, 38, 0.16);
-  margin-bottom: 70vh; /* creates scroll runway between cards */
+  margin-bottom: 32vh; /* runway between stacks — shorter so cards overlap quickly */
   background: var(--cream-deep);
-  transform: translateZ(0);
-  transition: transform 0.6s ease;
+  transform-origin: top center;
+  will-change: transform;
+  animation: stackShrink linear both;
+  animation-timeline: view();
+  animation-range: exit 0% exit 90%;
 }
 .memory-card:last-child {
   margin-bottom: 2rem;
+  animation: none;
+}
+@keyframes stackShrink {
+  to {
+    transform: scale(0.92) translateY(-14px);
+    filter: brightness(0.85) saturate(0.92);
+  }
 }
 .memory-card img {
   width: 100%;
