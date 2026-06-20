@@ -5,6 +5,7 @@ import HeroInvite from "./components/HeroInvite";
 import SaveTheDate from "./components/SaveTheDate";
 import EventsSection from "./components/EventsSection";
 import GallerySection from "./components/GallerySection";
+import RSVPSection from "./components/RSVPSection";
 import FooterNote from "./components/FooterNote";
 import PetalsCanvas from "./components/PetalsCanvas";
 import MusicButton from "./components/MusicButton";
@@ -49,6 +50,7 @@ function App() {
         <SaveTheDate />
         <EventsSection />
         <GallerySection />
+        <RSVPSection />
         <FooterNote />
       </main>
     </div>
