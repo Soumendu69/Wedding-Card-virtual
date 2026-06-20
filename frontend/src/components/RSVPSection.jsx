@@ -29,8 +29,7 @@ export default function RSVPSection() {
     attending: "yes",
     partySize: "1",
     events: ["mehendi", "sangeet", "wedding", "reception"],
-    song: "",
-    dietary: "No specific preferences",
+    dietary: "Vegetarian",
     advice: "",
   });
   const [status, setStatus] = useState("idle"); // idle | sending | success | error
@@ -67,7 +66,6 @@ export default function RSVPSection() {
         .map((id) => EVENTS.find((e) => e.id === id)?.title)
         .filter(Boolean)
         .join(", "),
-      song: form.song.trim(),
       dietary: form.dietary,
       advice: form.advice.trim(),
     };
@@ -221,18 +219,6 @@ export default function RSVPSection() {
           </div>
         </div>
 
-        {/* Song */}
-        <div className="rsvp-card reveal">
-          <h4 className="rsvp-card-title">A song for the dance floor</h4>
-          <input
-            type="text"
-            className="rsvp-input"
-            placeholder="e.g. Kala Chashma"
-            value={form.song}
-            onChange={(e) => update("song", e.target.value)}
-          />
-        </div>
-
         {/* Dietary */}
         <div className="rsvp-card reveal">
           <h4 className="rsvp-card-title">
@@ -271,6 +257,22 @@ export default function RSVPSection() {
         <button
           type="submit"
           className="rsvp-submit"
+          disabled={status === "sending"}
+        >
+          {status === "sending" ? (
+            "Sending…"
+          ) : (
+            <>
+              <Send size={16} style={{ marginRight: 8 }} />
+              SEND RSVP
+            </>
+          )}
+        </button>
+      </form>
+    </section>
+  );
+}
+"rsvp-submit"
           disabled={status === "sending"}
         >
           {status === "sending" ? (
