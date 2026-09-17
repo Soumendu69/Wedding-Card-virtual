@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 
 const CARDS = [
   { label: "MONTH", value: "DECEMBER" },
-  { label: "DAY", value: "25" },
+  { label: "DAY", value: "14" },
   { label: "YEAR", value: "2026" },
 ];
 
@@ -183,12 +183,14 @@ function ScratchCard({ value, onReveal }) {
     const p = getPos(e);
     scratchAt(p.x, p.y);
   };
+
   const handleMove = (e) => {
     if (!isDrawing.current) return;
     e.preventDefault();
     const p = getPos(e);
     scratchAt(p.x, p.y);
   };
+
   const handleUp = () => {
     isDrawing.current = false;
   };
@@ -196,6 +198,7 @@ function ScratchCard({ value, onReveal }) {
   return (
     <div className="scratch-card">
       <div className="reveal-bg">{value}</div>
+
       {!revealed && (
         <canvas
           ref={canvasRef}
@@ -208,12 +211,15 @@ function ScratchCard({ value, onReveal }) {
           onTouchEnd={handleUp}
         />
       )}
+
       {burstPetals.length > 0 && (
         <div className="flower-burst">
           {burstPetals.map((p) => (
             <span
               key={p.id}
-              className={`petal-burst ${p.fromLeft ? "from-left" : "from-right"}`}
+              className={`petal-burst ${
+                p.fromLeft ? "from-left" : "from-right"
+              }`}
               style={{
                 "--tx": p.tx,
                 "--ty": p.ty,
@@ -236,19 +242,24 @@ function MegaBurst() {
   useEffect(() => {
     const arr = [];
     const total = 90;
+
     for (let i = 0; i < total; i++) {
       const fromLeft = i % 2 === 0;
+
       // Random launch position along the vertical axis
-      const startY = 20 + Math.random() * 60; // % of viewport height
+      const startY = 20 + Math.random() * 60;
       const baseAngle = fromLeft ? -15 : -165;
       const spread = 90;
       const angle = baseAngle + (Math.random() - 0.5) * spread;
-      const distance = window.innerWidth * (0.5 + Math.random() * 0.55);
+      const distance =
+        window.innerWidth * (0.5 + Math.random() * 0.55);
       const rad = (angle * Math.PI) / 180;
       const tx = Math.cos(rad) * distance;
-      const ty = Math.sin(rad) * distance + (Math.random() - 0.3) * 200;
+      const ty =
+        Math.sin(rad) * distance + (Math.random() - 0.3) * 200;
       const rot = (Math.random() - 0.5) * 1080;
-      const color = PETAL_COLORS[Math.floor(Math.random() * PETAL_COLORS.length)];
+      const color =
+        PETAL_COLORS[Math.floor(Math.random() * PETAL_COLORS.length)];
       const size = 0.8 + Math.random() * 1.5;
       const delay = Math.random() * 0.45;
       const duration = 1.8 + Math.random() * 1.4;
@@ -266,6 +277,7 @@ function MegaBurst() {
         rot: `${rot}deg`,
       });
     }
+
     setPetals(arr);
   }, []);
 
@@ -274,7 +286,9 @@ function MegaBurst() {
       {petals.map((p) => (
         <span
           key={p.id}
-          className={`mega-petal ${p.fromLeft ? "mb-left" : "mb-right"}`}
+          className={`mega-petal ${
+            p.fromLeft ? "mb-left" : "mb-right"
+          }`}
           style={{
             top: `${p.startY}%`,
             "--tx": p.tx,

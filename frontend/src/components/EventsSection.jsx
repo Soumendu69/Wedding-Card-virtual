@@ -6,6 +6,7 @@ const VENUE_DAULATABAD = {
   name: "Daulatabad Choudwar",
   url: "https://maps.app.goo.gl/LiSzYTkbbyk38Zi66",
 };
+
 const VENUE_ADITYA = {
   name: "Aditya's The Nature",
   url: "https://maps.app.goo.gl/PAiToTZjtcZitr6j9",
@@ -26,7 +27,7 @@ const EVENTS = [
   },
   {
     title: "Wedding Ceremony",
-    date: "25 December 2026",
+    date: "14 December 2026",
     time: "9:30 AM onwards",
     venue: VENUE_ADITYA,
   },
@@ -57,15 +58,42 @@ export default function EventsSection() {
             style={{ transitionDelay: `${0.15 * (i + 1)}s` }}
           >
             <div className="event-meta">
-              <Calendar size={12} style={{ display: "inline", marginRight: 4, verticalAlign: "middle" }} />
+              <Calendar
+                size={12}
+                style={{
+                  display: "inline",
+                  marginRight: 4,
+                  verticalAlign: "middle",
+                }}
+              />
               {ev.date}
             </div>
+
             <h3>{ev.title}</h3>
-            <p style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 6, marginTop: 8 }}>
+
+            <p
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: 6,
+                marginTop: 8,
+              }}
+            >
               <Clock size={14} /> {ev.time}
             </p>
-            <p style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 6, marginTop: 6 }}>
+
+            <p
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: 6,
+                marginTop: 6,
+              }}
+            >
               <MapPin size={14} />
+
               <a
                 href={ev.venue.url}
                 target="_blank"

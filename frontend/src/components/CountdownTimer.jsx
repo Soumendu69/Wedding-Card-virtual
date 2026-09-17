@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const TARGET = new Date("2026-12-25T09:30:00").getTime();
+const TARGET = new Date("2026-12-14T09:30:00").getTime();
 
 function computeRemaining() {
   const now = Date.now();
@@ -28,7 +28,7 @@ export default function CountdownTimer() {
         A lifetime of togetherness begins with one sacred step
       </p>
       <h2 className="cd-title">The Wedding</h2>
-      <p className="cd-date">12 &middot; 25 &middot; 2026</p>
+      <p className="cd-date">12 &middot; 14 &middot; 2026</p>
 
       <div className="cd-grid">
         <CDUnit value={pad(t.days)} label="DAYS" />
