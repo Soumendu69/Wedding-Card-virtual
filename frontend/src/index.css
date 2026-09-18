@@ -1320,3 +1320,42 @@ button:active {
     transform: none;
   }
 }
+/* =========================================
+   Cinematic Countdown Number Transitions
+   ========================================= */
+
+.cd-number-wrap {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  min-width: 2ch;
+}
+
+.cd-number {
+  display: block;
+  animation: countdownNumberIn 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, opacity;
+}
+
+@keyframes countdownNumberIn {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  45% {
+    opacity: 0.7;
+    transform: translateY(-3px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cd-number {
+    animation: none;
+  }
+}

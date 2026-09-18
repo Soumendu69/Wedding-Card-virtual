@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const TARGET = new Date("2026-12-14T09:30:00").getTime();
+const TARGET = new Date("2026-12-14T20:00:00").getTime();
 
 function computeRemaining() {
   const now = Date.now();
@@ -9,6 +9,7 @@ function computeRemaining() {
   const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
   const mins = Math.floor((diff / (1000 * 60)) % 60);
   const secs = Math.floor((diff / 1000) % 60);
+
   return { days, hours, mins, secs };
 }
 
@@ -18,7 +19,10 @@ export default function CountdownTimer() {
   const [t, setT] = useState(computeRemaining);
 
   useEffect(() => {
-    const id = setInterval(() => setT(computeRemaining()), 1000);
+    const id = setInterval(() => {
+      setT(computeRemaining());
+    }, 1000);
+
     return () => clearInterval(id);
   }, []);
 
@@ -27,7 +31,9 @@ export default function CountdownTimer() {
       <p className="cd-tagline">
         A lifetime of togetherness begins with one sacred step
       </p>
+
       <h2 className="cd-title">The Wedding</h2>
+
       <p className="cd-date">12 &middot; 14 &middot; 2026</p>
 
       <div className="cd-grid">
@@ -43,7 +49,12 @@ export default function CountdownTimer() {
 function CDUnit({ value, label }) {
   return (
     <div className="cd-unit">
-      <div className="cd-number">{value}</div>
+      <div className="cd-number-wrap">
+        <div key={value} className="cd-number">
+          {value}
+        </div>
+      </div>
+
       <div className="cd-label">{label}</div>
     </div>
   );
