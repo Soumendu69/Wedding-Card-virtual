@@ -7,9 +7,9 @@ const VENUE_DAULATABAD = {
   url: "https://maps.app.goo.gl/LiSzYTkbbyk38Zi66",
 };
 
-const VENUE_ADITYA = {
-  name: "Aditya's The Nature",
-  url: "https://maps.app.goo.gl/PAiToTZjtcZitr6j9",
+const VENUE_NISHAMANI = {
+  name: "Nishamani Convention Hall",
+  url: "https://www.google.com/maps?rlz=1C1ONGR_enIN1208IN1208&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQIxgnMgcIAhAAGIAEMg0IAxAuGK8BGMcBGIAEMggIBBAAGBYYHjIICAUQABgWGB4yDQgGEAAYhgMYgAQYigUyDQgHEAAYhgMYgAQYigXSAQg1NzkxajBqN6gCALACAA&um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=KVv4Eo6WDRk6MZLV18cHOPxs&daddr=Infront+BSNL+Office,+Link+Rd,+Kataka,+Odisha+753012",
 };
 
 const EVENTS = [
@@ -33,9 +33,9 @@ const EVENTS = [
   },
   {
     title: "Reception",
-    date: "28 December 2026",
-    time: "8:00 PM onwards",
-    venue: VENUE_ADITYA,
+    date: "18 December 2026",
+    time: "7:00 PM onwards",
+    venue: VENUE_NISHAMANI,
   },
 ];
 

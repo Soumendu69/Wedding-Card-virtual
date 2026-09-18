@@ -5,7 +5,7 @@ const EVENTS = [
   { id: "mehendi", title: "Mehendi", date: "DEC 21 \u00b7 4:00 PM" },
   { id: "sangeet", title: "Sangeet", date: "DEC 22 \u00b7 7:00 PM" },
   { id: "wedding", title: "Wedding Ceremony", date: "DEC 14 \u00b7 9:30 AM" },
-  { id: "reception", title: "Reception", date: "DEC 28 \u00b7 8:00 PM" },
+  { id: "reception", title: "Reception", date: "DEC 18 \u00b7 7:00 PM" },
 ];
 
 const DIETARY = [
