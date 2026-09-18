@@ -1222,3 +1222,101 @@ html, body {
     --radius: 0.5rem;
   }
 }
+/* ================================
+   Refined Wedding Card Hover Effects
+   ================================ */
+
+/* Venue / Google Maps links */
+.venue-link {
+  position: relative;
+  text-decoration: none;
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.venue-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.venue-link:hover {
+  transform: translateY(-1px);
+}
+
+.venue-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* RSVP buttons */
+.rsvp-submit,
+.rsvp-pill {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.rsvp-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.rsvp-pill:hover {
+  transform: translateY(-1px);
+}
+
+/* Event cards */
+.event-card {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* General clickable elements */
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .venue-link,
+  .venue-link::after,
+  .rsvp-submit,
+  .rsvp-pill,
+  .event-card,
+  button {
+    transition: none !important;
+  }
+
+  .venue-link:hover,
+  .rsvp-submit:hover:not(:disabled),
+  .rsvp-pill:hover,
+  .event-card:hover {
+    transform: none;
+  }
+}
