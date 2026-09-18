@@ -12,29 +12,28 @@ const VENUE_ADITYA = {
   url: "https://maps.app.goo.gl/PAiToTZjtcZitr6j9",
 };
 
+const VENUE_WEDDING = {
+  name: "Wedding Ceremony Venue",
+  url: "https://maps.app.goo.gl/vzGvRTKUd83BcDyU6",
+};
+
 const VENUE_NISHAMANI = {
   name: "Nishamani Convention Hall",
-  url: "https://www.google.com/maps?rlz=1C1ONGR_enIN1208IN1208&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQIxgnMgcIAhAAGIAEMg0IAxAuGK8BGMcBGIAEMggIBBAAGBYYHjIICAUQABgWGB4yDQgGEAAYhgMYgAQYigUyDQcGEAAYhgMYgAQYigXSAQg1NzkxajBqN6gCALACAA&um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=KVv4Eo6WDRk6MZLV18cHOPxs&daddr=Infront+BSNL+Office,+Link+Rd,+Kataka,+Odisha+753012",
+  url: "https://www.google.com/maps?rlz=1C1ONGR_enIN1208IN1208&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQIxgnMgcIAhAAGIAEMg0IAxAuGK8BGMcBGIAEMggIBBAAGBYYHjIICAUQABgWGB4yDQcGEAAYhgMYgAQYigUyDQcGEAAYhgMYgAQYigXSAQg1NzkxajBqN6gCALACAA&um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=KVv4Eo6WDRk6MZLV18cHOPxs&daddr=Infront+BSNL+Office,+Link+Rd,+Kataka,+Odisha+753012",
 };
 
 const EVENTS = [
   {
-    title: "Mehendi",
-    date: "21 December 2026",
-    time: "4:00 PM onwards",
-    venue: VENUE_DAULATABAD,
-  },
-  {
-    title: "Sangeet",
-    date: "22 December 2026",
-    time: "7:00 PM onwards",
+    title: "Haldi & Rituals",
+    date: "14 December 2026",
+    time: "10:00 AM onwards",
     venue: VENUE_DAULATABAD,
   },
   {
     title: "Wedding Ceremony",
     date: "14 December 2026",
-    time: "9:30 AM onwards",
-    venue: VENUE_ADITYA,
+    time: "8:00 PM onwards",
+    venue: VENUE_WEDDING,
   },
   {
     title: "Reception",

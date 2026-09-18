@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import { Send, Check, PartyPopper, Utensils } from "lucide-react";
 
 const EVENTS = [
-  { id: "mehendi", title: "Mehendi", date: "DEC 21 \u00b7 4:00 PM" },
-  { id: "sangeet", title: "Sangeet", date: "DEC 22 \u00b7 7:00 PM" },
-  { id: "wedding", title: "Wedding Ceremony", date: "DEC 14 \u00b7 9:30 AM" },
+  { id: "haldi", title: "Haldi & Rituals", date: "DEC 14 \u00b7 10:00 AM" },
+  { id: "wedding", title: "Wedding Ceremony", date: "DEC 14 \u00b7 8:00 PM" },
   { id: "reception", title: "Reception", date: "DEC 18 \u00b7 7:00 PM" },
 ];
 
@@ -25,7 +24,7 @@ export default function RSVPSection() {
     phone: "",
     attending: "yes",
     partySize: "1",
-    events: ["mehendi", "sangeet", "wedding", "reception"],
+    events: ["haldi", "wedding", "reception"],
     dietary: "Vegetarian",
     advice: "",
   });
@@ -50,6 +49,7 @@ export default function RSVPSection() {
       setStatus("error");
       return;
     }
+
     setStatus("sending");
     setErrMsg("");
 
@@ -57,7 +57,10 @@ export default function RSVPSection() {
       timestamp: new Date().toISOString(),
       name: form.name.trim(),
       phone: form.phone.trim(),
-      attending: form.attending === "yes" ? "Joyfully Accept" : "Regrettably Decline",
+      attending:
+        form.attending === "yes"
+          ? "Joyfully Accept"
+          : "Regrettably Decline",
       party_size: form.partySize,
       events: form.events
         .map((id) => EVENTS.find((e) => e.id === id)?.title)
@@ -84,11 +87,14 @@ export default function RSVPSection() {
         headers: { "Content-Type": "text/plain;charset=utf-8" },
         body: JSON.stringify(payload),
       });
+
       setStatus("success");
     } catch (err) {
       console.error(err);
       setStatus("error");
-      setErrMsg("Couldn't send your RSVP. Please try again in a moment.");
+      setErrMsg(
+        "Couldn't send your RSVP. Please try again in a moment."
+      );
     }
   };
 
@@ -102,8 +108,8 @@ export default function RSVPSection() {
             </div>
             <h3>Thank you!</h3>
             <p>
-              Your RSVP has been received with love. We can't wait to celebrate
-              with you.
+              Your RSVP has been received with love. We can't wait to
+              celebrate with you.
             </p>
           </div>
         </div>
@@ -114,11 +120,17 @@ export default function RSVPSection() {
   return (
     <section className="rsvp-section">
       <div className="rsvp-head">
-        <span className="scratch-title-sup reveal">Join the Celebration</span>
-        <h2 className="rsvp-title reveal reveal-d1">RSVP</h2>
+        <span className="scratch-title-sup reveal">
+          Join the Celebration
+        </span>
+
+        <h2 className="rsvp-title reveal reveal-d1">
+          RSVP
+        </h2>
+
         <p className="rsvp-sub reveal reveal-d2">
-          Kindly let us know if you can make it — your presence will make this
-          celebration whole.
+          Kindly let us know if you can make it — your presence will make
+          this celebration whole.
         </p>
       </div>
 
@@ -126,7 +138,9 @@ export default function RSVPSection() {
         {/* Your details */}
         <div className="rsvp-card reveal">
           <h4 className="rsvp-card-title">Your details</h4>
+
           <label className="rsvp-label">YOUR NAME</label>
+
           <input
             type="text"
             className="rsvp-input"
@@ -135,9 +149,14 @@ export default function RSVPSection() {
             onChange={(e) => update("name", e.target.value)}
             required
           />
+
           <label className="rsvp-label">PHONE NUMBER</label>
+
           <div className="rsvp-phone-row">
-            <span className="rsvp-flag" aria-hidden="true">🇮🇳</span>
+            <span className="rsvp-flag" aria-hidden="true">
+              🇮🇳
+            </span>
+
             <input
               type="tel"
               className="rsvp-input rsvp-phone"
@@ -150,18 +169,26 @@ export default function RSVPSection() {
 
         {/* Will you join */}
         <div className="rsvp-card reveal">
-          <h4 className="rsvp-card-title">Will you join us?</h4>
+          <h4 className="rsvp-card-title">
+            Will you join us?
+          </h4>
+
           <div className="rsvp-toggle">
             <button
               type="button"
-              className={`rsvp-pill ${form.attending === "yes" ? "active" : ""}`}
+              className={`rsvp-pill ${
+                form.attending === "yes" ? "active" : ""
+              }`}
               onClick={() => update("attending", "yes")}
             >
               JOYFULLY ACCEPT 💐
             </button>
+
             <button
               type="button"
-              className={`rsvp-pill ${form.attending === "no" ? "active" : ""}`}
+              className={`rsvp-pill ${
+                form.attending === "no" ? "active" : ""
+              }`}
               onClick={() => update("attending", "no")}
             >
               REGRETTABLY DECLINE
@@ -171,7 +198,10 @@ export default function RSVPSection() {
 
         {/* Party size */}
         <div className="rsvp-card reveal">
-          <h4 className="rsvp-card-title">Party size</h4>
+          <h4 className="rsvp-card-title">
+            Party size
+          </h4>
+
           <select
             className="rsvp-input rsvp-select"
             value={form.partySize}
@@ -192,10 +222,14 @@ export default function RSVPSection() {
 
         {/* Events */}
         <div className="rsvp-card reveal">
-          <h4 className="rsvp-card-title">Events you'll attend</h4>
+          <h4 className="rsvp-card-title">
+            Events you'll attend
+          </h4>
+
           <div className="rsvp-events">
             {EVENTS.map((ev) => {
               const on = form.events.includes(ev.id);
+
               return (
                 <button
                   type="button"
@@ -207,8 +241,16 @@ export default function RSVPSection() {
                     <strong>{ev.title}</strong>
                     <span>{ev.date}</span>
                   </div>
-                  <span className={`rsvp-check ${on ? "on" : ""}`}>
-                    {on && <Check size={14} strokeWidth={3} />}
+
+                  <span
+                    className={`rsvp-check ${on ? "on" : ""}`}
+                  >
+                    {on && (
+                      <Check
+                        size={14}
+                        strokeWidth={3}
+                      />
+                    )}
                   </span>
                 </button>
               );
@@ -219,9 +261,16 @@ export default function RSVPSection() {
         {/* Dietary */}
         <div className="rsvp-card reveal">
           <h4 className="rsvp-card-title">
-            <Utensils size={16} style={{ verticalAlign: "middle", marginRight: 8 }} />
+            <Utensils
+              size={16}
+              style={{
+                verticalAlign: "middle",
+                marginRight: 8,
+              }}
+            />
             Dietary preferences
           </h4>
+
           <select
             className="rsvp-input rsvp-select"
             value={form.dietary}
@@ -237,7 +286,10 @@ export default function RSVPSection() {
 
         {/* Advice */}
         <div className="rsvp-card reveal">
-          <h4 className="rsvp-card-title">Marriage advice for us</h4>
+          <h4 className="rsvp-card-title">
+            Marriage advice for us
+          </h4>
+
           <textarea
             className="rsvp-input rsvp-textarea"
             placeholder="Share something sweet, funny, or wise…"
@@ -248,7 +300,9 @@ export default function RSVPSection() {
         </div>
 
         {status === "error" && errMsg && (
-          <div className="rsvp-error">{errMsg}</div>
+          <div className="rsvp-error">
+            {errMsg}
+          </div>
         )}
 
         <button
@@ -260,7 +314,10 @@ export default function RSVPSection() {
             "Sending…"
           ) : (
             <>
-              <Send size={16} style={{ marginRight: 8 }} />
+              <Send
+                size={16}
+                style={{ marginRight: 8 }}
+              />
               SEND RSVP
             </>
           )}
