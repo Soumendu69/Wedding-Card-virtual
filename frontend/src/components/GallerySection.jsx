@@ -37,27 +37,56 @@ const PHOTOS = [
 function MomentsCard({ photo, index, progress, activeCard }) {
   const total = PHOTOS.length;
 
-  const enterStart = index === 0 ? 0 : (index - 1) / total;
-  const enterEnd = index === 0 ? 0 : index / total;
+  /*
+   * Each photo gets an equal portion of the scroll.
+   * The final photo finishes exactly at the end.
+   */
+  const enterStart =
+    index === 0
+      ? 0
+      : (index - 1) / (total - 1);
 
+  const enterEnd =
+    index === 0
+      ? 0
+      : index / (total - 1);
+
+  /*
+   * New cards enter smoothly from below.
+   */
   const y = useTransform(
     progress,
-    index === 0 ? [0, 1] : [enterStart, enterEnd],
-    index === 0 ? [0, 0] : ["75vh", "0vh"]
+    index === 0
+      ? [0, 1]
+      : [enterStart, enterEnd],
+    index === 0
+      ? [0, 0]
+      : ["90vh", "0vh"]
   );
 
-  const scaleStart = index / total;
-  const scaleEnd = Math.min(1, (index + 1) / total);
+  /*
+   * Previous cards gently shrink as the next card arrives.
+   */
+  const scaleStart =
+    index === 0
+      ? 0
+      : (index - 1) / (total - 1);
+
+  const scaleEnd =
+    index === total - 1
+      ? 1
+      : index / (total - 1);
 
   const scale = useTransform(
     progress,
     [scaleStart, scaleEnd],
-    index === total - 1 ? [1, 1] : [1, 0.94]
+    index === total - 1
+      ? [1, 1]
+      : [1, 0.95]
   );
 
   /*
-   * Only the current/previous cards stay above the cards
-   * that haven't arrived yet.
+   * Keep the newest arriving card above the older cards.
    */
   const zIndex =
     index <= activeCard
@@ -103,7 +132,9 @@ export default function GallerySection() {
 
       const current = Math.min(
         total - 1,
-        Math.floor(latest * total + 0.999)
+        Math.floor(
+          latest * total + 0.999
+        )
       );
 
       setActiveCard(current);

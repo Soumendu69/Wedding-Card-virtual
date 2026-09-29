@@ -999,7 +999,7 @@ html, body {
   width: 100%;
   max-width: 540px;
 
-  /* Shorter scroll distance so there is less blank space */
+  /* Longer scroll distance = slower, smoother stacking */
   height: 170vh;
 
   margin: 3rem auto 0;
@@ -1096,7 +1096,9 @@ html, body {
 @media (max-width: 767px) {
 
   .moments-stage {
-    height: 175vh;
+    /* Extra-long runway for very smooth mobile stacking */
+    height: 170vh;
+
     max-width: 100%;
     padding: 0 16px;
     margin-top: 2.5rem;
