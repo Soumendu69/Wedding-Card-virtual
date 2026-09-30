@@ -641,7 +641,7 @@ html, body {
   align-items: center;
   justify-content: center;
   color: var(--wine);
-  font-family: 'Italiana', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 1.4rem;
   letter-spacing: 1px;
   padding: 0 6px;
@@ -649,6 +649,13 @@ html, body {
   line-height: 1;
 }
 
+.scratch-card .reveal-bg.reveal-day {
+  font-size: 2rem;
+}
+
+.scratch-card .reveal-bg.reveal-year {
+  font-size: 1.7rem;
+}
 .scratch-card canvas {
   position: absolute;
   inset: 0;
@@ -1582,13 +1589,21 @@ html, body {
 /* responsive */
 @media (min-width: 768px) {
   .couple-name { font-size: 4.5rem; }
-  .scratch-title { font-size: 3.75rem; }
-  .hero-card { padding: 3.5rem 3rem 2.5rem; }
-  .scratch-grid { max-width: 460px; }
-  .scratch-card { width: 180px; height: 220px; }
-  .scratch-card .reveal-bg { font-size: 1.75rem; }
-}
 
+  .scratch-title { font-size: 3.75rem; }
+
+  .hero-card { padding: 3.5rem 3rem 2.5rem; }
+
+  .scratch-grid { max-width: 460px; }
+
+  .scratch-card { width: 180px; height: 220px; }
+
+  .scratch-card .reveal-bg {
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+}
 @layer base {
   :root {
     --background: 40 50% 96%;

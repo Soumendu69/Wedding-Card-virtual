@@ -8,27 +8,27 @@ import {
 
 const PHOTOS = [
   {
-    src: "https://customer-assets.emergentagent.com/job_fest-hub-18/artifacts/nfyxfb90_ChatGPT%20Image%20Jun%2020%2C%202026%2C%2011_13_12%20AM.png",
+    src: "/moments/photo1.jpg",
     title: "Boundless",
     caption: "“Happiness is a day at the beach with you.”",
   },
   {
-    src: "https://customer-assets.emergentagent.com/job_fest-hub-18/artifacts/3ta7acmt_ChatGPT%20Image%20Jun%2020%2C%202026%2C%2011_12_11%20AM.png",
+    src: "/moments/photo2.jpg",
     title: "Forever",
     caption: "“Every sunset with you feels like a beginning.”",
   },
   {
-    src: "https://customer-assets.emergentagent.com/job_fest-hub-18/artifacts/nfyxfb90_ChatGPT%20Image%20Jun%2020%2C%202026%2C%2011_13_12%20AM.png",
+    src: "/moments/photo3.jpg",
     title: "Together",
     caption: "“The best moments are the ones we share.”",
   },
   {
-    src: "https://customer-assets.emergentagent.com/job_fest-hub-18/artifacts/3ta7acmt_ChatGPT%20Image%20Jun%2020%2C%202026%2C%2011_12_11%20AM.png",
+    src: "/moments/photo4.jpg",
     title: "Always",
     caption: "“Wherever you are, that is where I belong.”",
   },
   {
-    src: "https://customer-assets.emergentagent.com/job_fest-hub-18/artifacts/nfyxfb90_ChatGPT%20Image%20Jun%2020%2C%202026%2C%2011_13_12%20AM.png",
+    src: "/moments/photo5.jpg",
     title: "Us",
     caption: "“And so our forever begins.”",
   },
@@ -37,10 +37,6 @@ const PHOTOS = [
 function MomentsCard({ photo, index, progress, activeCard }) {
   const total = PHOTOS.length;
 
-  /*
-   * Each photo gets an equal portion of the scroll.
-   * The final photo finishes exactly at the end.
-   */
   const enterStart =
     index === 0
       ? 0
@@ -51,9 +47,6 @@ function MomentsCard({ photo, index, progress, activeCard }) {
       ? 0
       : index / (total - 1);
 
-  /*
-   * New cards enter smoothly from below.
-   */
   const y = useTransform(
     progress,
     index === 0
@@ -64,9 +57,6 @@ function MomentsCard({ photo, index, progress, activeCard }) {
       : ["90vh", "0vh"]
   );
 
-  /*
-   * Previous cards gently shrink as the next card arrives.
-   */
   const scaleStart =
     index === 0
       ? 0
@@ -85,9 +75,6 @@ function MomentsCard({ photo, index, progress, activeCard }) {
       : [1, 0.95]
   );
 
-  /*
-   * Keep the newest arriving card above the older cards.
-   */
   const zIndex =
     index <= activeCard
       ? index + 10

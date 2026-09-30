@@ -27,18 +27,21 @@ const EVENTS = [
     title: "Haldi & Rituals",
     date: "14 December 2026",
     time: "10:00 AM onwards",
+    location: "Choudwar, Cuttack",
     venue: VENUE_DAULATABAD,
   },
   {
     title: "Wedding Ceremony",
     date: "14 December 2026",
     time: "8:00 PM onwards",
+    location: "Kandarpur, Cuttack.",
     venue: VENUE_WEDDING,
   },
   {
     title: "Reception",
     date: "18 December 2026",
     time: "7:00 PM onwards",
+    location: "Link Rd, Cuttack",
     venue: VENUE_NISHAMANI,
   },
 ];
@@ -95,7 +98,17 @@ export default function EventsSection() {
               <Clock size={14} />
               {ev.time}
             </p>
-
+{ev.location && (
+  <p
+    style={{
+      marginTop: 4,
+      marginBottom: 0,
+      textAlign: "center",
+    }}
+  >
+    {ev.location}
+  </p>
+)}
             <p
               style={{
                 display: "flex",

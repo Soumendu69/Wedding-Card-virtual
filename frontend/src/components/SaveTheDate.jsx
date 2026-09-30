@@ -197,7 +197,9 @@ function ScratchCard({ value, onReveal }) {
 
   return (
     <div className="scratch-card">
-      <div className="reveal-bg">{value}</div>
+      <div className={`reveal-bg reveal-${value === "14" ? "day" : value === "2026" ? "year" : "month"}`}>
+  {value}
+</div>
 
       {!revealed && (
         <canvas
