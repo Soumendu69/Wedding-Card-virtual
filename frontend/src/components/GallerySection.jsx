@@ -8,7 +8,7 @@ import {
 
 const PHOTOS = [
   {
-    src: "/moments/photo1.jpg",
+    src: "/moments/photo1.png",
     title: "Boundless",
     caption: "“Happiness is a day at the beach with you.”",
   },
@@ -23,12 +23,12 @@ const PHOTOS = [
     caption: "“The best moments are the ones we share.”",
   },
   {
-    src: "/moments/photo4.jpg",
+    src: "/moments/photo4.png",
     title: "Always",
     caption: "“Wherever you are, that is where I belong.”",
   },
   {
-    src: "/moments/photo5.jpg",
+    src: "/moments/photo5.png",
     title: "Us",
     caption: "“And so our forever begins.”",
   },
