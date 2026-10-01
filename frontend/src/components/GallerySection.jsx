@@ -34,51 +34,32 @@ const PHOTOS = [
   },
 ];
 
-function MomentsCard({ photo, index, progress, activeCard }) {
+function MomentsCard({ photo, index, progress }) {
   const total = PHOTOS.length;
 
-  const enterStart =
-    index === 0
-      ? 0
-      : (index - 1) / (total - 1);
+  const start = index / total;
+  const end = (index + 1) / total;
 
-  const enterEnd =
-    index === 0
-      ? 0
-      : index / (total - 1);
-
+  // Every card has the same hooks, in the same order.
   const y = useTransform(
     progress,
-    index === 0
-      ? [0, 1]
-      : [enterStart, enterEnd],
-    index === 0
-      ? [0, 0]
-      : ["90vh", "0vh"]
+    [start, end],
+    index === 0 ? ["0vh", "0vh"] : ["105vh", "0vh"]
   );
-
-  const scaleStart =
-    index === 0
-      ? 0
-      : (index - 1) / (total - 1);
-
-  const scaleEnd =
-    index === total - 1
-      ? 1
-      : index / (total - 1);
 
   const scale = useTransform(
     progress,
-    [scaleStart, scaleEnd],
-    index === total - 1
-      ? [1, 1]
-      : [1, 0.95]
+    [start, end],
+    index === total - 1 ? [1, 1] : [1, 0.94]
   );
 
-  const zIndex =
-    index <= activeCard
-      ? index + 10
-      : 1;
+  const opacity = useTransform(
+    progress,
+    [Math.max(0, start - 0.03), start, end],
+    [0, 1, 1]
+  );
+
+  const stackOffset = index * 5;
 
   return (
     <motion.div
@@ -86,12 +67,15 @@ function MomentsCard({ photo, index, progress, activeCard }) {
       style={{
         y,
         scale,
-        zIndex,
+        opacity,
+        zIndex: index + 10,
+        top: `${stackOffset}px`,
       }}
     >
       <img
         src={photo.src}
         alt={photo.title}
+        draggable="false"
       />
 
       <div className="moments-card-overlay">
@@ -119,9 +103,7 @@ export default function GallerySection() {
 
       const current = Math.min(
         total - 1,
-        Math.floor(
-          latest * total + 0.999
-        )
+        Math.floor(latest * total)
       );
 
       setActiveCard(current);
@@ -153,7 +135,6 @@ export default function GallerySection() {
             photo={photo}
             index={index}
             progress={scrollYProgress}
-            activeCard={activeCard}
           />
         ))}
       </div>
