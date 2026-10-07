@@ -23,11 +23,6 @@ const PHOTOS = [
     caption: "“The best moments are the ones we share.”",
   },
   {
-    src: "/moments/photo4.png",
-    title: "Always",
-    caption: "“Wherever you are, that is where I belong.”",
-  },
-  {
     src: "/moments/photo5.png",
     title: "Us",
     caption: "“And so our forever begins.”",
